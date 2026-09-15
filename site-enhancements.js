@@ -11,6 +11,28 @@
  function update(){$('#compareN').textContent=comps.size;$('#compareNames').innerHTML=[...comps].map(x=>`<span>${x}</span>`).join('');tray.classList.toggle('show',comps.size>0);$$('.comparePick').forEach(p=>{const c=p.closest('.course');if(c)p.classList.toggle('on',comps.has(CURSOS[+c.dataset.i].nome))})}
  function compare(){if(!comps.size)return toast('Selecione um curso primeiro.');let m=$('.compareModal');if(!m){m=document.createElement('div');m.className='compareModal';document.body.appendChild(m)}const list=CURSOS.filter(c=>comps.has(c.nome));m.innerHTML=`<div class="compareBox"><div class="compareHead"><h2>Compare suas opções</h2><button class="compareClose">×</button></div><div class="compareGrid">${list.map(c=>`<article class="compareCard"><h3>${c.nome}</h3><b>Modalidade</b><p>${c.modalidade}</p><b>Duração</b><p>${c.duracao}</p><b>Sobre</b><p>${c.detalhes}</p><b>Atuação</b><p>${c.atuacao}</p><div class="compareActions"><a target="_blank" rel="noopener" href="${wa}?text=${encodeURIComponent('Olá! Gostaria de saber mais sobre o curso de '+c.nome+' no Polo UniFil Iguaraçu.')}">Tenho interesse</a></div></article>`).join('')}</div></div>`;m.classList.add('open');m.querySelector('.compareClose').onclick=()=>m.classList.remove('open');m.onclick=e=>{if(e.target===m)m.classList.remove('open')}}
  $('#compareBtn').onclick=compare;tray.querySelector('.go').onclick=compare;tray.querySelector('.clear').onclick=()=>{comps.clear();update();decorate()};new MutationObserver(decorate).observe($('#grid'),{childList:true});decorate();update();
+ /* NOVA PALETA — substitui visualmente o roxo por azul, mantendo o laranja UniFil */
+ const blue=document.createElement('style');blue.textContent=`
+ :root{--p:#063b8f;--p2:#1261c9;--bg:#f4f7fb;--line:#dfe7f2;--ink:#17243a;--shadow:0 18px 50px rgba(6,59,143,.12)}
+ .top{background:#052d70!important}.logo,.heroCardIn,.heading h2,.card h3,.courseHead h2,.course h3,.empty strong,.step h3,.faqItem button,.contactBtns a,.dialogTop h2,.detail h3,.dialogActions button,.finderResult button,.uxcompare,.compareHead h2,.compareClose,.compareCard h3,.comparePick.on{color:#063b8f!important}
+ .menu,.chip.active,.uxcompare.active,.compareTray,.toast{background:#063b8f!important}
+ .hero{background:radial-gradient(circle at 85% 20%,rgba(255,155,63,.24),transparent 25%),radial-gradient(circle at 5% 90%,rgba(18,97,201,.25),transparent 28%),linear-gradient(125deg,#02183f,#063b8f 55%,#1261c9)!important}
+ .heroCardIn{background:linear-gradient(145deg,#fff,#edf4fc)!important}
+ .heading h2,.card h3,.courseHead h2,.course h3,.step h3,.faqItem button,.dialogTop h2,.detail h3,.compareHead h2,.compareCard h3{color:#063b8f!important}
+ .badge,.tags span{background:#eaf2ff!important;color:#1261c9!important}
+ .chip{background:#f5f8fc!important;color:#063b8f!important;border-color:#dfe7f2!important}
+ .chip.active{background:#063b8f!important;color:#fff!important}
+ .finderBox{background:linear-gradient(135deg,#063b8f,#1261c9)!important;box-shadow:0 18px 45px rgba(6,59,143,.18)!important}
+ .comparePick.on{background:#1261c9!important;border-color:#1261c9!important;color:#fff!important}
+ .compareTray{background:#063b8f!important}
+ .compareModal{background:rgba(2,20,50,.8)!important}
+ .compareClose{background:#edf4fc!important;color:#063b8f!important}
+ .compareCard{border-color:#dfe7f2!important}
+ .dialogActions button{background:#edf4fc!important;color:#063b8f!important}
+ .close{background:#edf4fc!important;color:#063b8f!important}
+ .finderQs select{border-color:rgba(255,255,255,.25)!important}
+ footer{background:#031b43!important}
+ `;document.head.appendChild(blue);
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(start,100));else setTimeout(start,100);
 })();
