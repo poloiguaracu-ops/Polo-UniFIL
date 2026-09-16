@@ -15,6 +15,9 @@ function render(){
  close.onclick=()=>{body.hidden=true;open.hidden=false;el.scrollIntoView({behavior:'smooth',block:'start'});};
 }
 function load(id,src){if(document.getElementById(id))return;const s=document.createElement('script');s.id=id;s.src=src;s.async=false;document.body.appendChild(s)}
-function start(){render();setTimeout(render,300);setTimeout(render,1000);setTimeout(()=>load('letras-portugues-ingles-script','letras-portugues-ingles.js'),1200);setTimeout(()=>load('logo-fix-v3-script','logo-fix-v3.js?v=3'),1400);setTimeout(()=>load('teologia-script','teologia.js?v=2'),1600);setTimeout(()=>load('interface-referencia-script','interface-referencia.js?v=2'),1800)}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+function start(){
+ render();
+ load('carregamentoRapidoCursos','carregamento-rapido-cursos.js?v=1');
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
