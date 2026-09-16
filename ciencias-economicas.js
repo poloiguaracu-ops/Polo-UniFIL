@@ -34,6 +34,14 @@ function loadTeologia(){
  s.onerror=()=>console.error('Não foi possível carregar teologia.js');
  document.body.appendChild(s);
 }
-function start(){render();setTimeout(render,300);setTimeout(render,1000);setTimeout(loadLetras,1200);setTimeout(loadTeologia,1600)}
+function loadLogoFix(){
+ if(document.getElementById('logo-fix-script')) return;
+ const s=document.createElement('script');
+ s.id='logo-fix-script';
+ s.src='logo-fix.js?v=1';
+ s.async=false;
+ document.body.appendChild(s);
+}
+function start(){render();setTimeout(render,300);setTimeout(render,1000);setTimeout(loadLetras,1200);setTimeout(loadLogoFix,1400);setTimeout(loadTeologia,1600)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();
