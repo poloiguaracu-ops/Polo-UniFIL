@@ -15,19 +15,12 @@ const CURSOS = [
  {nome:'Inteligência Artificial',categoria:'Graduação',modalidade:'Tecnólogo',duracao:'2 anos',descricao:'Formação relacionada a conceitos, aplicações e soluções baseadas em inteligência artificial e dados.',detalhes:'O estudante entra em contato com fundamentos e aplicações tecnológicas ligadas à inteligência artificial.',conteudos:['IA','Dados','Algoritmos','Automação','Tecnologia'],atuacao:'Tecnologia, dados, automação, desenvolvimento de soluções e áreas digitais.'},
  {nome:'Segurança Cibernética',categoria:'Graduação',modalidade:'Tecnólogo',duracao:'2 anos',descricao:'Formação voltada à proteção de sistemas, informações, redes e ambientes digitais.',detalhes:'O curso apresenta conceitos de segurança da informação, redes e práticas de proteção de ambientes tecnológicos.',conteudos:['Segurança da informação','Redes','Proteção de dados','Sistemas','Gestão de riscos'],atuacao:'Segurança da informação, suporte, redes, tecnologia e gestão de riscos digitais.'},
  {nome:'História',categoria:'Licenciatura',modalidade:'Online',duracao:'4 anos',descricao:'Formação para estudar processos históricos, sociedades, culturas e diferentes interpretações do passado.',detalhes:'O estudante desenvolve leitura crítica de acontecimentos e processos históricos, relacionando passado e sociedade.',conteudos:['História do Brasil','História geral','Historiografia','Cultura','Pesquisa histórica'],atuacao:'Docência, educação, pesquisa, cultura e instituições relacionadas ao patrimônio histórico.'},
- {nome:'Letras Português-Inglês',categoria:'Licenciatura',modalidade:'Online',duracao:'4 anos',descricao:'Formação para estudo das línguas portuguesa e inglesa, literatura, linguagem e ensino.',detalhes:'O curso desenvolve conhecimentos linguísticos e literários e fundamentos para o ensino das línguas.',conteudos:['Língua portuguesa','Língua inglesa','Literaturas','Linguística','Didática'],atuacao:'Docência, educação, produção textual, revisão e áreas relacionadas à linguagem.'}
+ {nome:'Letras Português-Inglês',categoria:'Licenciatura',modalidade:'Online',duracao:'4 anos',descricao:'Formação para estudo das línguas portuguesa e inglesa, literatura, linguagem e ensino.',detalhes:'O curso desenvolve conhecimentos linguísticos e literários e fundamentos para o ensino das línguas.',conteudos:['Língua portuguesa','Língua inglesa','Literaturas','Linguística','Didática'],atuacao:'Docência, educação, produção textual, revisão e áreas relacionadas à linguagem.'},
+ {nome:'Matemática',categoria:'Licenciatura',modalidade:'Semipresencial',duracao:'4 anos',descricao:'Formação sólida em lógica, álgebra, cálculo, estatística e geometria, com desenvolvimento do raciocínio crítico e analítico.',detalhes:'O curso busca formar profissionais capazes de aplicar a matemática em contextos acadêmicos, científicos e tecnológicos.',conteudos:['Lógica','Álgebra','Cálculo','Estatística','Geometria'],atuacao:'Escolas, centros de pesquisa, empresas de tecnologia, setor financeiro, análise de dados e consultorias.'}
 ];
 
-// Carrega módulos de cursos detalhados sem alterar o catálogo existente.
 (function(){
-  function load(){
-    if(document.getElementById('logisticaLoader')) return;
-    const s=document.createElement('script');
-    s.id='logisticaLoader';
-    s.src='logistica.js';
-    s.async=true;
-    document.body.appendChild(s);
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',load,{once:true});
-  else load();
+  function loadScript(id,src){if(document.getElementById(id))return;const s=document.createElement('script');s.id=id;s.src=src;s.async=true;document.body.appendChild(s)}
+  function load(){loadScript('logisticaLoader','logistica.js');setTimeout(()=>loadScript('matematicaLoader','matematica.js'),900)}
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',load,{once:true}); else load();
 })();
