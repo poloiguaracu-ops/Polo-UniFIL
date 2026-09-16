@@ -16,6 +16,14 @@ function render(){
  open.onclick=()=>{body.hidden=false;open.hidden=true;el.scrollIntoView({behavior:'smooth',block:'start'});};
  close.onclick=()=>{body.hidden=true;open.hidden=false;el.scrollIntoView({behavior:'smooth',block:'start'});};
 }
-function start(){render();setTimeout(render,300);setTimeout(render,1000)}
-if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
+function loadLetras(){
+ if(document.getElementById('letras-portugues-ingles-script')) return;
+ const s=document.createElement('script');
+ s.id='letras-portugues-ingles-script';
+ s.src='letras-portugues-ingles.js';
+ s.async=false;
+ document.body.appendChild(s);
+}
+function start(){render();setTimeout(render,300);setTimeout(render,1000);setTimeout(loadLetras,1200)}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();
