@@ -16,40 +16,11 @@ function render(){
  open.onclick=()=>{body.hidden=false;open.hidden=true;el.scrollIntoView({behavior:'smooth',block:'start'});};
  close.onclick=()=>{body.hidden=true;open.hidden=false;el.scrollIntoView({behavior:'smooth',block:'start'});};
 }
-function loadLetras(){
- if(document.getElementById('letras-portugues-ingles-script')) return;
- const s=document.createElement('script');
- s.id='letras-portugues-ingles-script';
- s.src='letras-portugues-ingles.js';
- s.async=false;
- document.body.appendChild(s);
-}
-function loadTeologia(){
- if(document.getElementById('teologia-script')) return;
- const s=document.createElement('script');
- s.id='teologia-script';
- s.src='teologia.js?v=2';
- s.async=false;
- s.onload=()=>console.log('Teologia carregada');
- s.onerror=()=>console.error('Não foi possível carregar teologia.js');
- document.body.appendChild(s);
-}
-function loadLogoFix(){
- if(document.getElementById('logo-fix-script')) return;
- const s=document.createElement('script');
- s.id='logo-fix-script';
- s.src='logo-fix.js?v=1';
- s.async=false;
- document.body.appendChild(s);
-}
-function loadInterface(){
- if(document.getElementById('interface-referencia-script')) return;
- const s=document.createElement('script');
- s.id='interface-referencia-script';
- s.src='interface-referencia.js?v=1';
- s.async=false;
- document.body.appendChild(s);
-}
-function start(){render();setTimeout(render,300);setTimeout(render,1000);setTimeout(loadLetras,1200);setTimeout(loadLogoFix,1400);setTimeout(loadTeologia,1600);setTimeout(loadInterface,1800)}
+function loadLetras(){if(document.getElementById('letras-portugues-ingles-script'))return;const s=document.createElement('script');s.id='letras-portugues-ingles-script';s.src='letras-portugues-ingles.js';s.async=false;document.body.appendChild(s)}
+function loadTeologia(){if(document.getElementById('teologia-script'))return;const s=document.createElement('script');s.id='teologia-script';s.src='teologia.js?v=2';s.async=false;document.body.appendChild(s)}
+function loadLogoFix(){if(document.getElementById('logo-fix-script'))return;const s=document.createElement('script');s.id='logo-fix-script';s.src='logo-fix.js?v=1';s.async=false;document.body.appendChild(s)}
+function loadLogoColorFix(){if(document.getElementById('logo-color-fix-script'))return;const s=document.createElement('script');s.id='logo-color-fix-script';s.src='logo-color-fix.js?v=1';s.async=false;document.body.appendChild(s)}
+function loadInterface(){if(document.getElementById('interface-referencia-script'))return;const s=document.createElement('script');s.id='interface-referencia-script';s.src='interface-referencia.js?v=1';s.async=false;document.body.appendChild(s)}
+function start(){render();setTimeout(render,300);setTimeout(render,1000);setTimeout(loadLetras,1200);setTimeout(loadLogoFix,1400);setTimeout(loadTeologia,1600);setTimeout(loadInterface,1800);setTimeout(loadLogoColorFix,2100)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();
