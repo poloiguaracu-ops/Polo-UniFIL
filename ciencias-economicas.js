@@ -18,6 +18,7 @@ function load(id,src){if(document.getElementById(id))return;const s=document.cre
 function start(){
  render();
  load('carregamentoRapidoCursos','carregamento-rapido-cursos.js?v=1');
+ load('teologiaFixLoader','teologia-fix.js?v=1');
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
