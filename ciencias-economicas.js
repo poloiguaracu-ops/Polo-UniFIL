@@ -42,6 +42,14 @@ function loadLogoFix(){
  s.async=false;
  document.body.appendChild(s);
 }
-function start(){render();setTimeout(render,300);setTimeout(render,1000);setTimeout(loadLetras,1200);setTimeout(loadLogoFix,1400);setTimeout(loadTeologia,1600)}
+function loadInterface(){
+ if(document.getElementById('interface-referencia-script')) return;
+ const s=document.createElement('script');
+ s.id='interface-referencia-script';
+ s.src='interface-referencia.js?v=1';
+ s.async=false;
+ document.body.appendChild(s);
+}
+function start(){render();setTimeout(render,300);setTimeout(render,1000);setTimeout(loadLetras,1200);setTimeout(loadLogoFix,1400);setTimeout(loadTeologia,1600);setTimeout(loadInterface,1800)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();
