@@ -26,16 +26,17 @@
   root.insertAdjacentHTML('beforeend',html);
   if(!document.getElementById('logisticaStyle')){
     const s=document.createElement('style');s.id='logisticaStyle';s.textContent=`
-      #logisticaBlock{margin:14px 0;background:#fff;border:1px solid #e7dfeb;border-radius:22px;padding:25px;box-shadow:0 12px 35px rgba(37,6,50,.07);position:relative;overflow:hidden}
-      #logisticaBlock:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(#ff7000,#ff9b3f)}
-      #logisticaBlock h3{color:#250632;font-size:27px;margin:9px 0 7px}
-      #logisticaBlock .ucBadge{display:inline-flex;padding:6px 9px;border-radius:999px;background:#f5ecf9;color:#5b1685;font-size:9px;font-weight:1000;letter-spacing:.7px}
-      #logisticaBlock .ucIntro{color:#716576;font-size:12px;line-height:1.7;max-width:850px}
-      #logisticaBlock .ucMeta{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}
-      #logisticaBlock .ucMeta span{padding:7px 10px;border-radius:9px;background:#f8f5fa;color:#5b1685;font-size:9px;font-weight:900}
-      #logisticaBlock .ucBtn,.ucWhats{border:0;border-radius:12px;background:linear-gradient(135deg,#ff7000,#ff9b3f);color:#fff;padding:12px 16px;font-size:11px;font-weight:950;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
-      #logisticaBlock .ucPanel{margin-top:20px;padding-top:18px;border-top:1px solid #e7dfeb}
-      #logisticaBlock .ucClose{border:0;background:#f3edf7;color:#250632;border-radius:10px;padding:10px 13px;font-weight:900;cursor:pointer;margin-bottom:15px}
+      #logisticaBlock{margin:14px 0;background:linear-gradient(135deg,#250632 0%,#5b1685 72%,#70219b 100%);border:1px solid #6f2890;border-radius:22px;padding:25px;box-shadow:0 15px 40px rgba(37,6,50,.2);position:relative;overflow:hidden;color:#fff}
+      #logisticaBlock:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(#ff7000,#ff9b3f)}
+      #logisticaBlock:after{content:"";position:absolute;width:220px;height:220px;right:-100px;top:-120px;border-radius:50%;background:rgba(255,155,63,.14)}
+      #logisticaBlock h3{color:#fff;font-size:29px;margin:9px 0 7px;position:relative;z-index:1}
+      #logisticaBlock .ucBadge{display:inline-flex;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.12);color:#ffb06a;font-size:9px;font-weight:1000;letter-spacing:.7px;position:relative;z-index:1}
+      #logisticaBlock .ucIntro{color:#eee3f2;font-size:12px;line-height:1.7;max-width:850px;position:relative;z-index:1}
+      #logisticaBlock .ucMeta{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0;position:relative;z-index:1}
+      #logisticaBlock .ucMeta span{padding:7px 10px;border-radius:9px;background:rgba(255,255,255,.1);color:#fff;font-size:9px;font-weight:900;border:1px solid rgba(255,255,255,.12)}
+      #logisticaBlock .ucBtn,.ucWhats{border:0;border-radius:12px;background:linear-gradient(135deg,#ff7000,#ff9b3f);color:#fff;padding:12px 16px;font-size:11px;font-weight:950;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;position:relative;z-index:2}
+      #logisticaBlock .ucPanel{margin-top:20px;padding:20px;border-radius:17px;background:#fff;color:#211827;border:1px solid rgba(255,255,255,.18);position:relative;z-index:2}
+      #logisticaBlock .ucClose{border:0;background:#f1e8f5;color:#250632;border-radius:10px;padding:10px 13px;font-weight:900;cursor:pointer;margin-bottom:15px}
       #logisticaBlock h4{color:#250632;font-size:24px;margin:5px 0 18px}
       #logisticaBlock section{padding:17px 0;border-top:1px solid #eee7f1}
       #logisticaBlock h5{color:#5b1685;font-size:15px;margin:0 0 7px}
