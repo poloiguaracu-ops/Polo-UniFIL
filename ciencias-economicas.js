@@ -20,6 +20,7 @@ function start(){
  load('carregamentoRapidoCursos','carregamento-rapido-cursos.js?v=1');
  load('teologiaFixLoader','teologia-fix.js?v=1');
  load('clarearLogoTopoLoader','clarear-logo-topo.js?v=1');
+ load('valoresDescontosLoader','valores-descontos.js?v=1');
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
