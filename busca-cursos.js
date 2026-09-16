@@ -84,6 +84,8 @@
     }
   }
 
-  function boot(){iniciar();[300,900,1800,3200,5000].forEach(ms=>setTimeout(iniciar,ms));}
+  function boot(){iniciar();[300,900,1800,3200,5000].forEach(ms=>setTimeout(iniciar,ms));
+    const nav=document.createElement('script');nav.id='navegacaoRapidaLoader';nav.src='navegacao-rapida.js?v=1';nav.async=true;document.body.appendChild(nav);
+  }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot,{once:true}); else boot();
 })();
