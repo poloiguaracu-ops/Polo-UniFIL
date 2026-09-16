@@ -27,6 +27,21 @@ const CURSOS = [
 
 (function(){
  function loadScript(id,src){if(document.getElementById(id))return;const s=document.createElement('script');s.id=id;s.src=src;s.async=true;document.body.appendChild(s)}
- function load(){loadScript('logisticaLoader','logistica.js');loadScript('teologiaFixLoader','teologia-fix.js?v=4');setTimeout(()=>loadScript('matematicaLoader','matematica.js'),100);setTimeout(()=>loadScript('marketingLoader','marketing.js'),150);setTimeout(()=>loadScript('midiasSociaisLoader','midias-sociais-digitais.js'),200);setTimeout(()=>loadScript('ministerioPastoralLoader','ministerio-pastoral.js'),250);setTimeout(()=>loadScript('pedagogiaLoader','pedagogia.js'),300);setTimeout(()=>loadScript('processosGerenciaisLoader','processos-gerenciais.js'),350);setTimeout(()=>loadScript('relacoesInternacionaisLoader','relacoes-internacionais.js'),400);setTimeout(()=>loadScript('segurancaCiberneticaLoader','seguranca-cibernetica.js'),450);setTimeout(()=>loadScript('sociologiaLoader','sociologia.js'),500);setTimeout(()=>loadScript('jogosDigitaisLoader','jogos-digitais.js'),550);setTimeout(()=>loadScript('teologiaLoader','teologia.js?v=3'),600);setTimeout(()=>loadScript('buscaCursosLoader','busca-cursos.js?v=2'),700)}
+ function load(){
+  loadScript('logisticaLoader','logistica.js');
+  setTimeout(()=>loadScript('matematicaLoader','matematica.js'),200);
+  setTimeout(()=>loadScript('marketingLoader','marketing.js'),350);
+  setTimeout(()=>loadScript('midiasSociaisLoader','midias-sociais-digitais.js'),500);
+  setTimeout(()=>loadScript('ministerioPastoralLoader','ministerio-pastoral.js'),650);
+  setTimeout(()=>loadScript('pedagogiaLoader','pedagogia.js'),800);
+  setTimeout(()=>loadScript('processosGerenciaisLoader','processos-gerenciais.js'),950);
+  setTimeout(()=>loadScript('relacoesInternacionaisLoader','relacoes-internacionais.js'),1100);
+  setTimeout(()=>loadScript('segurancaCiberneticaLoader','seguranca-cibernetica.js'),1250);
+  setTimeout(()=>loadScript('sociologiaLoader','sociologia.js'),1400);
+  setTimeout(()=>loadScript('jogosDigitaisLoader','jogos-digitais.js'),1550);
+  setTimeout(()=>loadScript('teologiaLoader','teologia.js'),1700);
+  setTimeout(()=>loadScript('buscaCursosLoader','busca-cursos.js?v=2'),1850);
+  setTimeout(()=>loadScript('registroVisitasLoader','registro-visitas.js?v=2'),2000);
+ }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',load,{once:true});else load();
 })();
