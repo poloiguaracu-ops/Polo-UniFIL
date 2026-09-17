@@ -10,8 +10,8 @@ function init(){
   const msg=document.getElementById('matMsg');
   if(!section||!form||!btn||!msg||btn.dataset.persistenciaAtiva) return;
   btn.dataset.persistenciaAtiva='1';
-
   const originalText=btn.textContent;
+
   const snapshot=()=>{
     const fd=new FormData(form), out=[];
     for(const [k,v] of fd.entries()){
@@ -28,35 +28,10 @@ function init(){
   }
 
   async function enviar(){
-    const required=[
-      ['cursoGraduacao','Informe o curso de graduação.'],
-      ['dataSolicitacao','Informe a data da solicitação.'],
-      ['nomeCompleto','Informe o nome completo.'],
-      ['dataNascimento','Informe a data de nascimento.'],
-      ['cpf','Informe o CPF.'],
-      ['endereco','Informe o endereço.'],
-      ['numero','Informe o número do endereço.'],
-      ['bairro','Informe o bairro.'],
-      ['cidade','Informe a cidade.'],
-      ['ufEndereco','Informe a UF.'],
-      ['cep','Informe o CEP.'],
-      ['email','Informe o e-mail.'],
-      ['celular','Informe o celular/WhatsApp.']
-    ];
-    for(const [id,text] of required){
-      const el=document.getElementById(id);
-      if(!el||!String(el.value||'').trim()){
-        el?.focus();
-        setMsg(text);
-        return;
-      }
-    }
-    if(!form.querySelector('input[name="modalidade"]:checked')){
-      setMsg('Selecione a modalidade da matrícula.');
-      return;
-    }
-    if(!document.getElementById('declaracao')?.checked){
-      setMsg('Marque a declaração antes de enviar a matrícula.');
+    const nome=document.getElementById('nomeCompleto');
+    if(!nome||!String(nome.value||'').trim()){
+      nome?.focus();
+      setMsg('Digite pelo menos o nome do aluno para salvar a matrícula.');
       return;
     }
 
@@ -64,21 +39,21 @@ function init(){
     let last='';
     try{last=sessionStorage.getItem(LAST)||'';}catch(e){}
     if(last===current){
-      setMsg('Esta matrícula já foi salva. Altere algum dado para enviar uma nova matrícula.',true);
+      setMsg('Esta matrícula já foi salva. Altere algum dado para salvar uma nova versão.',true);
       return;
     }
 
     btn.disabled=true;
-    btn.textContent='⏳ Salvando matrícula...';
-    setMsg('Enviando a ficha para o banco do Polo...');
+    btn.textContent='⏳ Salvando...';
+    setMsg('Salvando o preenchimento no sistema do Polo...');
 
     try{
       const response=await fetch(API,{method:'POST',body:new FormData(form)});
       const data=await response.json().catch(()=>({}));
       if(!response.ok||!data.ok) throw new Error(data.error||'Não foi possível salvar a matrícula.');
       try{sessionStorage.setItem(LAST,current);}catch(e){}
-      setMsg(`✓ Matrícula salva no sistema do Polo. Protocolo: ${data.id}`,true);
-      btn.textContent='✓ Matrícula salva';
+      setMsg(`✓ Preenchimento salvo no sistema do Polo. Protocolo: ${data.id}`,true);
+      btn.textContent='✓ Preenchimento salvo';
       setTimeout(()=>{btn.disabled=false;btn.textContent=originalText;},2200);
     }catch(error){
       setMsg(`⚠ ${error.message||'Erro ao salvar.'}`);
@@ -88,10 +63,7 @@ function init(){
   }
 
   btn.addEventListener('click',enviar);
-  const watch=['cursoGraduacao','dataSolicitacao','nomeCompleto','cpf','email','celular','declaracao'];
-  watch.forEach(id=>document.getElementById(id)?.addEventListener('input',()=>{
-    if(btn.textContent==='✓ Matrícula salva') btn.textContent=originalText;
-  }));
+  form.addEventListener('submit',e=>e.preventDefault());
 }
 
 function boot(){
