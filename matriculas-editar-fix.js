@@ -29,10 +29,12 @@ function boot(){
  document.addEventListener('click',e=>{
   const btn=e.target.closest?.('[data-edit]');
   if(!btn)return;
-  setTimeout(()=>{if(!document.getElementById('matriculasSection')?.classList.contains('open'))abrirSeguro();instalarVoltar()},120);
+  setTimeout(()=>{
+   if(!document.getElementById('matriculasSection')?.classList.contains('open'))abrirSeguro();
+   instalarVoltar();
+  },150);
   setTimeout(instalarVoltar,500);setTimeout(instalarVoltar,1200);
  },false);
- abrirSeguro();
  instalarVoltar();
  [250,700,1400,2500,4000,6000].forEach(ms=>setTimeout(instalarVoltar,ms));
 }
