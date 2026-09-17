@@ -24,6 +24,7 @@ function start(){
  load('registroVisitasLoader','registro-visitas.js?v=2');
  load('teologiaGradeLoader','teologia-grade.js?v=1');
  load('matriculasLoader','matriculas.js?v=1');
+ load('matriculasAjusteLoader','matriculas-ajuste.js?v=1');
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
