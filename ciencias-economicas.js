@@ -22,6 +22,7 @@ function start(){
  load('clarearLogoTopoLoader','clarear-logo-topo.js?v=1');
  load('valoresDescontosLoader','valores-descontos.js?v=1');
  load('registroVisitasLoader','registro-visitas.js?v=2');
+ load('teologiaGradeLoader','teologia-grade.js?v=1');
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
