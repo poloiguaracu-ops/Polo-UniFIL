@@ -26,7 +26,7 @@ function start(){
  load('matriculasLoader','matriculas.js?v=1');
  load('matriculasAjusteLoader','matriculas-ajuste.js?v=1');
  load('matriculasPersistenciaLoader','matriculas-persistencia.js?v=1');
- load('matriculasFeitasLoader','matriculas-feitas.js?v=2');
+ load('matriculasFeitasLoader','matriculas-feitas.js?v=4');
  load('matriculasEditarFixLoader','matriculas-editar-fix.js?v=3');
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
