@@ -21,6 +21,7 @@ function start(){
  load('teologiaFixLoader','teologia-fix.js?v=1');
  load('clarearLogoTopoLoader','clarear-logo-topo.js?v=1');
  load('valoresDescontosLoader','valores-descontos.js?v=1');
+ load('registroVisitasLoader','registro-visitas.js?v=2');
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
