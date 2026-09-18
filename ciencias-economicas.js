@@ -21,7 +21,7 @@ function start(){
  load('teologiaFixLoader','teologia-fix.js?v=1');
  load('clarearLogoTopoLoader','clarear-logo-topo.js?v=1');
  load('valoresDescontosLoader','valores-descontos.js?v=1');
- load('registroVisitasLoader','registro-visitas.js?v=2');
+ load('registroVisitasLoader','registro-visitas.js?v=3');
  load('teologiaGradeLoader','teologia-grade.js?v=1');
  load('matriculasLoader','matriculas.js?v=1');
  load('matriculasAjusteLoader','matriculas-ajuste.js?v=1');
