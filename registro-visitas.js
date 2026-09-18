@@ -3,6 +3,7 @@
 'use strict';
 const KEY='unifil_polo_registro_visitas_v1';
 const API='/api/visitas';
+const CACHE_BUSTER='?t='+Date.now();
 let servidorDisponivel=false;
 let registros=[];
 const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
@@ -13,7 +14,7 @@ function brDate(v){if(!v)return'';const [y,m,d]=v.split('-');return d&&m&&y?`${d
 function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function id(){return crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random())}
 function ordenados(arr){return [...arr].sort((a,b)=>String(b.data).localeCompare(String(a.data))||Number(b.criadoEm||0)-Number(a.criadoEm||0))}
-async function api(method,body){const r=await fetch(API,{method,headers:{'content-type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),cache:'no-store'});if(!r.ok)throw new Error(await r.text());return r.json()}
+async function api(method,body){const opt={method,headers:{'content-type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),cache:'no-store'};const r=await fetch(API+CACHE_BUSTER,opt);if(!r.ok)throw new Error(await r.text());return r.json()}
 async function sincronizar(){
  const locais=localGet();
  try{
