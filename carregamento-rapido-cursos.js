@@ -27,7 +27,7 @@
     ['gestaoEsporteLoader','gestao-esporte-alto-rendimento.js'],
     ['letrasPortuguesInglesLoader','letras-portugues-ingles.js'],
     ['cienciasEconomicasLoader','ciencias-economicas.js'],
-    ['logoFixLoader','logo-fix-v3.js?v=3'],
+    ['logoFixLoader','logo-fix-v3.js?v=4'],
     ['interfaceReferenciaLoader','interface-referencia.js?v=2']
   ];
 
